@@ -17,7 +17,7 @@ $(document).ready(function(){
 	}).addTo(map)
 
 	$.getJSON('/geo/geojson/user_home_locations.geojson',function(data){
-		var users = L.geojson(data).addTo(map)
+		var users = L.Geojson(data).addTo(map)
 	})
 })
 </script>
