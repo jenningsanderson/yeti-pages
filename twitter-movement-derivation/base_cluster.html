@@ -4,7 +4,7 @@ layout:      'full_page'
 title:       'Determining the Base Cluster of these Users'
 ---
 
-<div id="map" style="width:100%; height:600px;">
+<div id="map" style="width:100%; height:600px;"></div>
 
 <script type="javascript">
 document.onready(function(){
@@ -14,5 +14,9 @@ document.onready(function(){
 	L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map)
+
+	L.marker([51.5, -0.09]).addTo(map)
+     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+     .openPopup();
 })
 </script>
