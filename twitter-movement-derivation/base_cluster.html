@@ -16,7 +16,7 @@ $(document).ready(function(){
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map)
 
-	$.getJSON('/assets/geo/geojson/user_home_locations.geojson',function(data){
+	$.getJSON('/geo/geojson/user_home_locations.geojson',function(data){
 		var users = L.geojson(data).addTo(map)
 	})
 })
