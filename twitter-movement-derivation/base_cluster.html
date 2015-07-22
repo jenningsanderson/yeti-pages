@@ -22,6 +22,7 @@ $(document).ready(function(){
 				layer.bindPopup(feature.properties.handle.toString());
 			}
 		}).addTo(map)
+		map.fitBounds(users.getBounds())
 	})
 })
 </script>
