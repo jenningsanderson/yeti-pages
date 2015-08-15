@@ -16,8 +16,16 @@ $(document).ready(function(){
 
 	function userStyleSwitcher(feature){
         switch (feature.properties.type) {
-            case 'Home Cluster': return {color: "#ff1000"};
+            case 'Home Cluster': color = "#ff1000";
         }
+        return {
+        	radius: 8,
+    		fillColor: color,
+		    color: "#000",
+		    weight: 1,
+		    opacity: 1,
+		    fillOpacity: 0.8
+		}
     }
 
 	L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
