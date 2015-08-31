@@ -2,6 +2,7 @@
 	"name" : "yeti-pages",
 	"local": "/home/jennings/yeti-pages",
 	"pages" : [
-		"twitter-movement-derivation/base_cluster.html"
+		"twitter-movement-derivation/base_cluster.html",
+		"twitter-movement-derivation/movement.html"
 	]
 }
