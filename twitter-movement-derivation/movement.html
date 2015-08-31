@@ -9,7 +9,6 @@ title:       'Determining the Movement Patterns.'
 
 </section>
 
-Does anything change?
 <script type="text/javascript">
 $(document).ready(function(){
 
@@ -33,15 +32,12 @@ $(document).ready(function(){
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map)
 
-	$.getJSON('/geo/geojson/user_home_locations.geojson',function(data){
+	$.getJSON('/geo/geojson/user_movements.geojson',function(data){
 		var users = L.geoJson(data,{
 			onEachFeature: function(feature, layer){
 				layer.bindPopup(feature.properties.handle.toString());
 			},
-			style: userStyleSwitcher,
-			pointToLayer: function (feature, latlng) {
-        		return L.circleMarker(latlng);
-    		}
+			style: userStyleSwitcher
 		}).addTo(map)
 		map.fitBounds(users.getBounds())
 	})
