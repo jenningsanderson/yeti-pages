@@ -13,34 +13,34 @@ title:       'Determining the Base Cluster for Each User'
 </section>
 
 
-
 <script type="text/javascript">
 $(document).ready(function(){
 
 	var map = L.map('map').setView([35, -105], 4);
 
-	function userStyleSwitcher(feature){
-        switch (feature.properties.type) {
-            case 'Home Cluster': color = "#ff1000";
-        }
-        return {
-        	radius: 3,
-    		fillColor: color,
-		    color: "#000",
-		    weight: 1,
-		    opacity: 0.5,
-		    fillOpacity: 0.8
-		}
-    }
+	// function userStyleSwitcher(feature){
+ //        switch (feature.properties.type) {
+ //            case 'Home Cluster': color = "#ff1000";
+ //        }
+ //        return {
+ //        	radius: 3,
+ //    		fillColor: color,
+	// 	    color: "#000",
+	// 	    weight: 1,
+	// 	    opacity: 0.5,
+	// 	    fillOpacity: 0.8
+	// 	}
+ //    }
 
 	L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map)
 
-	$.getJSON('/geo/geojson/user_home_locations.geojson',function(data){
+	//Get all user base clusters (abotu 3mb)
+	$.getJSON('/nbserver/sandy/all_user_base_clusters.geojson',function(data){
 		var users = L.geoJson(data,{
 			onEachFeature: function(feature, layer){
-				layer.bindPopup(feature.properties.handle.toString());
+				layer.bindPopup(feature.properties.user.toString());
 			},
 			style: userStyleSwitcher,
 			pointToLayer: function (feature, latlng) {
