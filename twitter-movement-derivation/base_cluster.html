@@ -31,7 +31,7 @@ $(document).ready(function(){
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map)
 	
-	#Add the Points of Interest
+	//Add the Points of Interest
 	$.getJSON('/nbserver/sandy/geojson_pois.geojson',function(data){
 		var pois = L.geoJson(data,{
 			onEachFeature: function(feature, layer){
