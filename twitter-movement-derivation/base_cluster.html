@@ -19,6 +19,7 @@ $(document).ready(function(){
 	var map = L.map('map').setView([35, -105], 4);
 
 	function userStyleSwitcher(feature){
+		color: '#ff1000';
         switch (feature.properties.type) {
             case 'Home Cluster': color = "#ff1000";
         }
