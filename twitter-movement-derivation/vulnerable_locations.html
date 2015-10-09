@@ -1,0 +1,63 @@
+---
+destination: '/data/www/geo/vulnerable_neighborhoods.html'
+layout:      'full_page'
+title:       'Determining the Base Cluster for Each User'
+---
+
+<h1>Twitterers During Hurricane Sandy: Base Clusters</h1>
+
+<section style="text-align:center">
+
+	<div id="map" style="margin:10px auto; width:90%; height:600px;"></div>
+
+</section>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var map = L.map('map').setView([35, -105], 4);
+
+	function userStyleSwitcher(feature){
+        return {
+        	radius: 3,
+    		fillColor: '#F00',
+		    weight: 0,
+		    fillOpacity: 0.5
+		}
+    }
+
+	L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',{
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+	}).addTo(map)
+	
+	//Add the Points of Interest
+	$.getJSON('/nbserver/sandy/geojson_pois.geojson',function(data){
+		var pois = L.geoJson(data,{
+			onEachFeature: function(feature, layer){
+				layer.bindPopup(feature.properties.name.toString());
+			 }
+			// style: userStyleSwitcher,
+			// pointToLayer: function (feature, latlng) {
+   //      		return L.circleMarker(latlng);
+   //  		}
+		}).addTo(map)
+		map.fitBounds(pois.getBounds())
+	})
+	
+
+	//Get all user base clusters (abotu 3mb)
+	// $.getJSON('/nbserver/sandy/all_user_base_clusters.geojson',function(data){
+	// 	var users = L.geoJson(data,{
+	// 		onEachFeature: function(feature, layer){
+	// 			layer.bindPopup(feature.properties.user.toString());
+	// 		},
+	// 		style: userStyleSwitcher,
+	// 		pointToLayer: function (feature, latlng) {
+ //        		return L.circleMarker(latlng);
+ //    		}
+	// 	}).addTo(map)
+	// 	map.fitBounds(users.getBounds())
+	// })
+})
+</script>
