@@ -45,7 +45,7 @@ $(document).ready(function(){
 		map.fitBounds(pois.getBounds())
 	})
 	
-	$.getJSON('/nbserver/sandy/users_within_5k.geojson',function(data){
+	$.getJSON('/nbserver/sandy/users_within_2500.geojson',function(data){
 		var users = L.geoJson(data,{
 			onEachFeature: function(feature, layer){
 				layer.bindPopup(feature.properties.user.toString());
