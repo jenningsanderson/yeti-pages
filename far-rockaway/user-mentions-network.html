@@ -30,8 +30,6 @@ var url = "/nbserver/sandy/vulnerable_neighborhoods/far_rockaway_mentions.json"
 d3.json(url, function(error, graph) {
   if (error) throw error;
 
-  console.log(graph)
-
   debug(graph)
 
   var nodes = graph.nodes
