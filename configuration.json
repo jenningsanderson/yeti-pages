@@ -5,6 +5,7 @@
 		"twitter-movement-derivation/base_cluster.html",
 		"twitter-movement-derivation/movement.html",
 		"twitter-movement-derivation/vulnerable_locations.html",
-		"far-rockaway/index.html"
+		"far-rockaway/reply-to-network.html",
+		"far-rockaway/user-mentions-network.html"
 	]
 }
