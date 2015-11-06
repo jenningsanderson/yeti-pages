@@ -4,7 +4,7 @@
 	"pages" : [
 		"twitter-movement-derivation/base_cluster.html",
 		"twitter-movement-derivation/movement.html",
-		"twitter-movement-derivation/vulnerable_locations.html"
+		"twitter-movement-derivation/vulnerable_locations.html",
 		"far-rockaway/index.html"
 	]
 }
