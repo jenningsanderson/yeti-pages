@@ -27,6 +27,8 @@ var url = "/nbserver/sandy/vulnerable_neighborhoods/far_rockaway_mentions.json"
 d3.json(url, function(error, graph) {
   if (error) throw error;
 
+  console.log(graph)
+
   force
       .nodes(graph.nodes)
       .links(graph.links)
@@ -47,7 +49,7 @@ d3.json(url, function(error, graph) {
       .call(force.drag);
 
   node.append("title")
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.id; });
 
   force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
