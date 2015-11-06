@@ -30,6 +30,7 @@ d3.json(url, function(error, graph) {
   console.log(graph)
 
   var nodes = graph.nodes
+  var links = graph.links
 
 	var force = d3.layout.force()
 	    .nodes(d3.values(nodes))
