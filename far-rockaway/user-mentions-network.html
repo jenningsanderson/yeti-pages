@@ -76,7 +76,7 @@ d3.json(url, function(error, graph) {
 	// add the nodes
 	node.append("circle")
 	    .attr("r", function(d){
-	    	return Math.sqrt(d.tweets);
+	    	return 1+Math.log(d.tweets);
 	    });
 
 	// add the text 
