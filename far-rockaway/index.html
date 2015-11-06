@@ -8,6 +8,8 @@ title:       'Networks'
 
 <h1>Networks for Far Rockaway</h1>
 
+<svg id="network"></svg>
+
 <script>
 
 var width = 960,
@@ -20,7 +22,7 @@ var force = d3.layout.force()
     .linkDistance(30)
     .size([width, height]);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("network")
     .attr("width", width)
     .attr("height", height);
 
@@ -72,6 +74,7 @@ d3.json(url, function(error, graph) {
           }
         return  d.user + "";
     })
+
     svg.call(tip);
     node
       .on('mouseover', tip.show)
