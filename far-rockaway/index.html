@@ -13,6 +13,20 @@ title:       'Networks'
   stroke: #999;
   stroke-opacity: .6;
 }
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+
 </style>
 
 <h1>Networks for Far Rockaway</h1>
@@ -73,6 +87,20 @@ d3.json(url, function(error, graph) {
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
   });
+
+  var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([0, 0])
+        .html(function (d) {
+          if (d.user == undefined){
+            d.user = d.id;
+          }
+        return  d.user + "";
+    })
+    svg.call(tip);
+    node
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
 });
 
 </script>
