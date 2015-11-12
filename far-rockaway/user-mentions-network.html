@@ -64,9 +64,9 @@ d3.json(url, function(error, graph) {
 	  .enter().append("svg:path")
 	//    .attr("class", function(d) { return "link " + d.type; })
 	    .attr("class", "link")
-	    .attr("stroke-opacity", function(d){
-	    	return Math.log(d.weight)
-	    })
+	    // .attr("stroke-opacity", function(d){
+	    // 	return Math.log(d.weight)
+	    // })
 	    .attr("marker-end", "url(#end)");
 
 	// define the nodes
